@@ -530,28 +530,13 @@ namespace Projeto2bimestre
                 " " + corLinha[2].ToString()+ " " + espessura.ToString() + " " + x.ToString() +
                 " " + y.ToString() + " " + x1.ToString() + " " + y1.ToString() + " " + x2.ToString() +
                 " " + y2.ToString() + " " + x3.ToString() + " " + y3.ToString() + " " + x4.ToString() +
-                " " + y4.ToString() + " " + tipoLinha.Length.ToString() + " ";
+                " " + y4.ToString() + " " + raioCirculo.ToString()+ " " + raio1Elipse.ToString() +
+                " "+ raio2Elipse.ToString()+ " " + altura.ToString() + " "+ largura.ToString()+ " " + tipoLinha.Length.ToString() + " ";
             for(int i = 0; i <= tipoLinha.Length -1; i++)
             {
                 texto += tipoLinha[i].ToString() + " ";
             }
             File.AppendAllText(@"C:\Users\User\Desktop\"+nomeArquivo.ToString()+".dat", texto);
-
-            if(desenhoEscolhido == "Circulo")
-            {
-                File.AppendAllText(@"C:\Users\User\Desktop\" + nomeArquivo.ToString() + ".dat", raioCirculo.ToString() + " ");
-            }
-
-            if(desenhoEscolhido == "Elipse")
-            {
-                File.AppendAllText(@"C:\Users\User\Desktop\" + nomeArquivo.ToString() + ".dat", raio1Elipse.ToString() + " " + raio2Elipse.ToString() + " ");
-
-            }
-            if(desenhoEscolhido == "Retangulo")
-            {
-                File.AppendAllText(@"C:\Users\User\Desktop\" + nomeArquivo.ToString() + ".dat", altura.ToString() + " " + largura.ToString() + " ");
-
-            }
             MessageBox.Show("Salvo!!");
         }
 
@@ -578,9 +563,9 @@ namespace Projeto2bimestre
                             corLinha[0] = int.Parse(dadosDoDesenho[1]);
                             corLinha[1] = int.Parse(dadosDoDesenho[2]);
                             corLinha[2] = int.Parse(dadosDoDesenho[3]);
-                            ultimaLinha = 15;
-                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[15]));
-                            for(int i = ultimaLinha; i<= int.Parse(dadosDoDesenho[15]) + ultimaLinha -1; i++)
+                            ultimaLinha = 21;
+                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[20]));
+                            for(int i = ultimaLinha +1; i<= int.Parse(dadosDoDesenho[20]) + ultimaLinha; i++)
                             {
                                 tipoLinha[indice] = int.Parse(dadosDoDesenho[i]);
                                 indice++;
@@ -590,14 +575,14 @@ namespace Projeto2bimestre
                         }
                         if(dadosDoDesenho[0] == "Circulo")
                         {
-                            raioCirculo = int.Parse(dadosDoDesenho[19]);
+                            raioCirculo = int.Parse(dadosDoDesenho[15]);
                             espessura = int.Parse(dadosDoDesenho[4]);
                             corLinha[0] = int.Parse(dadosDoDesenho[1]);
                             corLinha[1] = int.Parse(dadosDoDesenho[2]);
                             corLinha[2] = int.Parse(dadosDoDesenho[3]);
-                            ultimaLinha = 15;
-                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[15]));
-                            for (int i = ultimaLinha; i <= int.Parse(dadosDoDesenho[15]) + ultimaLinha - 1; i++)
+                            ultimaLinha = 20;
+                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[20]));
+                            for (int i = ultimaLinha +1; i <= int.Parse(dadosDoDesenho[20]) + ultimaLinha; i++)
                             {
                                 tipoLinha[indice] = int.Parse(dadosDoDesenho[i]);
                                 indice++;
@@ -607,15 +592,15 @@ namespace Projeto2bimestre
                         }
                         if(dadosDoDesenho[0] == "Elipse")
                         {
-                            raio1Elipse = int.Parse(dadosDoDesenho[19]);
-                            raio2Elipse = int.Parse(dadosDoDesenho[20]);
+                            raio1Elipse = int.Parse(dadosDoDesenho[16]);
+                            raio2Elipse = int.Parse(dadosDoDesenho[17]);
                             espessura = int.Parse(dadosDoDesenho[4]);
                             corLinha[0] = int.Parse(dadosDoDesenho[1]);
                             corLinha[1] = int.Parse(dadosDoDesenho[2]);
                             corLinha[2] = int.Parse(dadosDoDesenho[3]);
-                            ultimaLinha = 15;
-                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[15]));
-                            for (int i = ultimaLinha; i <= int.Parse(dadosDoDesenho[15]) + ultimaLinha - 1; i++)
+                            ultimaLinha = 20;
+                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[20]));
+                            for (int i = ultimaLinha +1; i <= int.Parse(dadosDoDesenho[20]) + ultimaLinha; i++)
                             {
                                 tipoLinha[indice] = int.Parse(dadosDoDesenho[i]);
                                 indice++;
@@ -635,9 +620,9 @@ namespace Projeto2bimestre
                             corLinha[0] = int.Parse(dadosDoDesenho[1]);
                             corLinha[1] = int.Parse(dadosDoDesenho[2]);
                             corLinha[2] = int.Parse(dadosDoDesenho[3]);
-                            ultimaLinha = 15;
-                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[15]));
-                            for (int i = ultimaLinha; i <= int.Parse(dadosDoDesenho[15]) + ultimaLinha - 1; i++)
+                            ultimaLinha = 20;
+                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[20]));
+                            for (int i = ultimaLinha +1; i <= int.Parse(dadosDoDesenho[20]) + ultimaLinha; i++)
                             {
                                 tipoLinha[indice] = int.Parse(dadosDoDesenho[i]);
                                 indice++;
@@ -647,17 +632,17 @@ namespace Projeto2bimestre
                         }
                         if (dadosDoDesenho[0] == "Retangulo")
                         {
-                            altura = int.Parse(dadosDoDesenho[17]);
-                            largura = int.Parse(dadosDoDesenho[18]);
                             x = int.Parse(dadosDoDesenho[5]);
                             y = int.Parse(dadosDoDesenho[6]);
+                            altura = int.Parse(dadosDoDesenho[18]);
+                            largura = int.Parse(dadosDoDesenho[19]);
                             espessura = int.Parse(dadosDoDesenho[4]);
                             corLinha[0] = int.Parse(dadosDoDesenho[1]);
                             corLinha[1] = int.Parse(dadosDoDesenho[2]);
                             corLinha[2] = int.Parse(dadosDoDesenho[3]);
-                            ultimaLinha = 15;
-                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[15]));
-                            for (int i = ultimaLinha; i <= int.Parse(dadosDoDesenho[15]) + ultimaLinha - 1; i++)
+                            ultimaLinha = 20;
+                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[20]));
+                            for (int i = ultimaLinha +1; i <= int.Parse(dadosDoDesenho[20]) + ultimaLinha; i++)
                             {
                                 tipoLinha[indice] = int.Parse(dadosDoDesenho[i]);
                                 indice++;
@@ -681,9 +666,9 @@ namespace Projeto2bimestre
                             corLinha[0] = int.Parse(dadosDoDesenho[1]);
                             corLinha[1] = int.Parse(dadosDoDesenho[2]);
                             corLinha[2] = int.Parse(dadosDoDesenho[3]);
-                            ultimaLinha = 15;
-                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[15]));
-                            for (int i = ultimaLinha; i <= int.Parse(dadosDoDesenho[15]) + ultimaLinha - 1; i++)
+                            ultimaLinha = 20;
+                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[20]));
+                            for (int i = ultimaLinha +1; i <= int.Parse(dadosDoDesenho[20]) + ultimaLinha; i++)
                             {
                                 tipoLinha[indice] = int.Parse(dadosDoDesenho[i]);
                                 indice++;
@@ -705,9 +690,9 @@ namespace Projeto2bimestre
                             corLinha[0] = int.Parse(dadosDoDesenho[1]);
                             corLinha[1] = int.Parse(dadosDoDesenho[2]);
                             corLinha[2] = int.Parse(dadosDoDesenho[3]);
-                            ultimaLinha = 15;
-                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[15]));
-                            for (int i = ultimaLinha; i <= int.Parse(dadosDoDesenho[15]) + ultimaLinha - 1; i++)
+                            ultimaLinha = 20;
+                            Array.Resize(ref tipoLinha, int.Parse(dadosDoDesenho[20]));
+                            for (int i = ultimaLinha +1; i <= int.Parse(dadosDoDesenho[20]) + ultimaLinha; i++)
                             {
                                 tipoLinha[indice] = int.Parse(dadosDoDesenho[i]);
                                 indice++;
